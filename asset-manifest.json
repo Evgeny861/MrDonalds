@@ -1,0 +1,25 @@
+{
+  "files": {
+    "main.css": "/MrDonalds/static/css/main.5ecd60fb.chunk.css",
+    "main.js": "/MrDonalds/static/js/main.6052da34.chunk.js",
+    "main.js.map": "/MrDonalds/static/js/main.6052da34.chunk.js.map",
+    "runtime-main.js": "/MrDonalds/static/js/runtime-main.99eb0625.js",
+    "runtime-main.js.map": "/MrDonalds/static/js/runtime-main.99eb0625.js.map",
+    "static/js/2.3195e848.chunk.js": "/MrDonalds/static/js/2.3195e848.chunk.js",
+    "static/js/2.3195e848.chunk.js.map": "/MrDonalds/static/js/2.3195e848.chunk.js.map",
+    "index.html": "/MrDonalds/index.html",
+    "precache-manifest.33ac466ee7501e74c29954d9c72157dc.js": "/MrDonalds/precache-manifest.33ac466ee7501e74c29954d9c72157dc.js",
+    "service-worker.js": "/MrDonalds/service-worker.js",
+    "static/css/main.5ecd60fb.chunk.css.map": "/MrDonalds/static/css/main.5ecd60fb.chunk.css.map",
+    "static/js/2.3195e848.chunk.js.LICENSE.txt": "/MrDonalds/static/js/2.3195e848.chunk.js.LICENSE.txt",
+    "static/media/banner.png": "/MrDonalds/static/media/banner.73fbbbd3.png",
+    "static/media/logo.svg": "/MrDonalds/static/media/logo.cfe37dbc.svg",
+    "static/media/sign.svg": "/MrDonalds/static/media/sign.6ea25215.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.99eb0625.js",
+    "static/js/2.3195e848.chunk.js",
+    "static/css/main.5ecd60fb.chunk.css",
+    "static/js/main.6052da34.chunk.js"
+  ]
+}
