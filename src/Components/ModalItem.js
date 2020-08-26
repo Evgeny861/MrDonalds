@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import { Button } from './ModalButton';
 
 const Overlay = styled.div`
     position: fixed;
@@ -49,23 +50,7 @@ const Wrapper = styled.div`
     align-items: center;
 `;
 
-const Button = styled.button`
-    background-color: #299B01;
-    border-radius: 15px;
-    width: 250px;
-    height: 65px;
-    margin: auto;
-    outline: none;
-    border: none;
 
-    &:hover {
-        background-color: #248103;
-    }
-
-    &:active {
-        background-color: #1ba653;
-    }
-`;
 
 export const ModalItem = ({ openItem, setOpenItem }) => {
 
