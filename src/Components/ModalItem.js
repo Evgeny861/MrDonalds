@@ -70,8 +70,8 @@ export const ModalItem = ({ openItem, setOpenItem }) => {
             <Wrapper>
                 <H4>{openItem.name}</H4>
                 <P>{openItem.price}</P>
+                <Button>Добавить</Button>
             </Wrapper>
-            <Button>Добавить</Button>
         </Modal>
         </Overlay>
     )
