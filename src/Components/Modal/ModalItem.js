@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Button } from './ModalButton';
+import { Button } from '../Style/ModalButton';
 
 const Overlay = styled.div`
     position: fixed;
@@ -28,7 +28,6 @@ const Banner = styled.div `
     background-image: url(${({img}) => img});
     background-size: cover;
     background-position: center;
-    margin-bottom: 20px;
     width:100%;
 `;
 
@@ -44,21 +43,37 @@ const P = styled.p `
 `;
 const Wrapper = styled.div`
     width: 90%;
-    margin: auto;
+    margin: auto; 
+    height: calc(100% - 200px);
     display: flex;
     justify-content: space-between;
+    flex-direction: column;
+    padding: 30px;
+`;
+const HeaderWrapper = styled.div`
+    display: flex;
     align-items: center;
+    justify-content: space-between;
 `;
 
 
 
-export const ModalItem = ({ openItem, setOpenItem }) => {
+export const ModalItem = ({ openItem, setOpenItem, orders, setOrders }) => {
 
-    function closeModal(e) {
+    const closeModal = e => {
         if (e.target.id === 'overlay') {
             setOpenItem(null);
         }
-    }       
+    }   
+
+    const order = {
+        ...openItem
+    };
+    
+    const addToOrder = () => {
+        setOrders([...orders, order])
+        setOpenItem(null);
+    }
     
     return (
         <Overlay id="overlay" onClick={closeModal}>
@@ -66,9 +81,11 @@ export const ModalItem = ({ openItem, setOpenItem }) => {
         <Modal>
             <Banner img={openItem.img}/>
             <Wrapper>
-                <H4>{openItem.name}</H4>
-                <P>{openItem.price}</P>
-                <Button>Добавить</Button>
+                <HeaderWrapper>
+                    <H4>{openItem.name}</H4>
+                    <P>{openItem.price}</P>
+                </HeaderWrapper>
+                <Button onClick={addToOrder}>Добавить</Button>
             </Wrapper>
         </Modal>
         </Overlay>
