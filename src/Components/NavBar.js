@@ -9,7 +9,7 @@ const NavBarStyled = styled.header`
     left: 0;
     z-index: 999;
     height: 80px;
-    width: 100vw;
+    width: 100%;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -42,6 +42,7 @@ const Login = styled.button`
     text-transform: uppercase;
     font-family: Roboto;
     font-size: 16px;
+    padding: 0;
     :hover {
         background-color: #7b84c3;
         border-radius: 10px;
