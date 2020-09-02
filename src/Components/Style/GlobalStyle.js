@@ -19,9 +19,17 @@ export const GlobalStyle = createGlobalStyle`
   }
   button {
     cursor: pointer;
+    outline: none;
   }
   input, button {
     font-family: inherit;
+  }
+  input[type='number'] {
+    -moz-appearance: textfield;
+  }
+  input::-webkit-outer-spin-button,
+  input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
   }
   img {
     max-width: 100%;
