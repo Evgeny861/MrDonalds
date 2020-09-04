@@ -3,7 +3,11 @@ import styled from 'styled-components';
 import { Button } from '../Style/ModalButton';
 import { CountItem } from './CountItem';
 import { useCount } from '../Hooks/useCount';
-import { formatCurrency } from '../Functions/secondaryFunction'
+import { formatCurrency, totalPriceItems } from '../Functions/secondaryFunction';
+import { Toppings } from './Toppings';
+import { Choices } from './Choices';
+import { useToppings } from '../Hooks/useTopping';
+import { useChoices } from '../Hooks/useChoices'
 
 
 const Overlay = styled.div`
@@ -65,11 +69,13 @@ const TotalPriceItem = styled.div`
     justify-content: space-between;
 `;  
 
-export const totalPriceItems = order => order.price * order.count;
 
 export const ModalItem = ({ openItem, setOpenItem, orders, setOrders }) => {
 
     const counter = useCount();
+    const toppings = useToppings(openItem);
+    const choices = useChoices(openItem);
+    const isEdit = openItem.index > -1;
 
     const closeModal = e => {
         if (e.target.id === 'overlay') {
@@ -79,16 +85,21 @@ export const ModalItem = ({ openItem, setOpenItem, orders, setOrders }) => {
 
     const order = {
         ...openItem,
-        count: counter.count
+        count: counter.count,
+        topping: toppings.toppings,
+        choice: choices.choice
     };
 
-
+    const editOrder = () => {
+        const newOrders = [...orders];
+        newOrders[openItem.index] = order;
+        setOrders(newOrders);
+    }
     
     const addToOrder = () => {
         setOrders([...orders, order])
         setOpenItem(null);
     }
-    
     return (
         <Overlay id="overlay" onClick={closeModal}>
     
@@ -100,11 +111,17 @@ export const ModalItem = ({ openItem, setOpenItem, orders, setOrders }) => {
                     <P>{formatCurrency(openItem.price)}</P>
                 </HeaderWrapper>
                 <CountItem {...counter}/>
+                { openItem.toppings && <Toppings { ...toppings }/> }
+                { openItem.choices &&  <Choices { ...choices } openItem={ openItem }/>}
                 <TotalPriceItem>
                     <span> Цена</span>
                     <span>{formatCurrency(totalPriceItems(order))}</span>
                 </TotalPriceItem>
-                <Button onClick={addToOrder}>Добавить</Button>
+                
+                <Button 
+                    onClick={isEdit ? editOrder : addToOrder}
+                    disabled={ order.choices && !order.choice}
+                >Добавить</Button>
             </Wrapper>
         </Modal>
         </Overlay>
